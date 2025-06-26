@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NextStep.AI - Your Future Career Awaits</title>
+  <!-- Multiple sizes for better browser support -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/Arghyalogo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/Arghyalogo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/Arghyalogo.png">
+  <meta name="description" content="Arghyadip's futuristic portfolio - Full Stack Developer & AI Explorer">
+  <meta name="keywords" content="Arghyadip, Portfolio, Full Stack Developer, AI, Projects, Resume">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      padding: 20px 0;
+      position: relative;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 16px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo::before {
+      content: '🚀';
+      font-size: 28px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      transform: translateY(-2px);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: white;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .cta-button {
+      background: linear-gradient(45deg, #ff6b6b, #feca57);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 24px;
+      background: linear-gradient(45deg, #fff, #f0f8ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 40px;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    .primary-btn {
+      background: linear-gradient(45deg, #4facfe, #00f2fe);
+      color: white;
+      padding: 16px 32px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(79, 172, 254, 0.4);
+    }
+
+    .secondary-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 16px 32px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .secondary-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    /* Features Section */
+    .features {
+      padding: 100px 0;
+      background: white;
+      position: relative;
+    }
+
+    .features::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: linear-gradient(180deg, rgba(102, 126, 234, 0.1) 0%, transparent 100%);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #2d3748;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(45deg, #4facfe, #00f2fe);
+      border-radius: 2px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(79, 172, 254, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(45deg, #4facfe, #00f2fe);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #2d3748;
+      margin-bottom: 16px;
+    }
+
+    .feature-card p {
+      color: #718096;
+      line-height: 1.6;
+    }
+
+    /* Assessment Form */
+    .assessment {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      position: relative;
+    }
+
+    .assessment-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 60px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .form-section {
+      margin-bottom: 40px;
+    }
+
+    .form-section h3 {
+      color: #2d3748;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #4a5568;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #4facfe;
+      box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .skill-tag {
+      background: linear-gradient(45deg, #4facfe, #00f2fe);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .skill-tag:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(79, 172, 254, 0.3);
+    }
+
+    .skill-tag.selected {
+      background: linear-gradient(45deg, #ff6b6b, #feca57);
+    }
+
+    .progress-bar {
+      background: #e2e8f0;
+      height: 8px;
+      border-radius: 4px;
+      margin: 40px 0;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      background: linear-gradient(45deg, #4facfe, #00f2fe);
+      height: 100%;
+      width: 60%;
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+
+    .submit-btn {
+      background: linear-gradient(45deg, #4facfe, #00f2fe);
+      color: white;
+      padding: 16px 48px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+      display: block;
+      margin: 0 auto;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(79, 172, 254, 0.4);
+    }
+
+    /* Results Section */
+    .results {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: none;
+    }
+
+    .results.show {
+      display: block;
+    }
+
+    .results-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 60px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+
+    .career-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .career-card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border-left: 4px solid #4facfe;
+    }
+
+    .career-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .match-score {
+      background: linear-gradient(45deg, #4facfe, #00f2fe);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .career-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #2d3748;
+      margin-bottom: 12px;
+    }
+
+    .career-desc {
+      color: #718096;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .career-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .salary {
+      font-weight: 600;
+      color: #38a169;
+    }
+
+    .growth {
+      font-size: 0.9rem;
+      color: #4facfe;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .assessment-container,
+      .results-container {
+        padding: 40px 20px;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* Floating elements */
+    .floating-element {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.1;
+    }
+
+    .floating-1 {
+      top: 20%;
+      left: 10%;
+      font-size: 2rem;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-2 {
+      top: 60%;
+      right: 15%;
+      font-size: 1.5rem;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    .floating-3 {
+      bottom: 30%;
+      left: 20%;
+      font-size: 1.8rem;
+      animation: float 7s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Floating Elements -->
+  <div class="floating-element floating-1">💼</div>
+  <div class="floating-element floating-2">🎯</div>
+  <div class="floating-element floating-3">🚀</div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">NextStep.AI</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#assessment">Assessment</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+        <button class="cta-button" onclick="scrollToAssessment()">Start Assessment</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <h1>Discover Your Perfect Career Path</h1>
+      <p>AI-powered career guidance that matches your skills, interests, and aspirations</p>
+      <div class="hero-cta">
+        <button class="primary-btn" onclick="scrollToAssessment()">Take Assessment</button>
+        <button class="secondary-btn" onclick="scrollToFeatures()">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">How NextStep.AI Works</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">🧠</span>
+          <h3>AI-Powered Analysis</h3>
+          <p>Our advanced machine learning algorithms analyze your skills, personality traits, and career preferences to
+            provide personalized recommendations.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">📊</span>
+          <h3>Comprehensive Assessment</h3>
+          <p>Complete evaluation of your technical skills, soft skills, interests, and work preferences through our
+            scientifically-backed assessment framework.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🎯</span>
+          <h3>Precision Matching</h3>
+          <p>Get matched with career paths that align with your unique profile, complete with growth projections and
+            salary insights.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">📈</span>
+          <h3>Future-Ready Insights</h3>
+          <p>Discover emerging career opportunities and understand market trends to make informed decisions about your
+            professional future.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🛤️</span>
+          <h3>Personalized Roadmap</h3>
+          <p>Receive a detailed action plan with recommended courses, certifications, and skill development paths for
+            your chosen career.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🤝</span>
+          <h3>Expert Guidance</h3>
+          <p>Access to career counselors and industry experts who can provide additional insights and mentorship for
+            your journey.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Assessment Section -->
+  <section class="assessment" id="assessment">
+    <div class="container">
+      <div class="assessment-container">
+        <h2 class="section-title" style="color: #2d3748;">Career Assessment</h2>
+        <p style="text-align: center; color: #718096; margin-bottom: 40px;">Complete this comprehensive assessment to
+          discover your ideal career paths</p>
+
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <form id="assessmentForm">
+          <!-- Personal Information -->
+          <div class="form-section">
+            <h3>👤 Personal Information</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="16" max="65" required>
+              </div>
+              <div class="form-group">
+                <label for="education">Education Level</label>
+                <select id="education" name="education" required>
+                  <option value="">Select Education Level</option>
+                  <option value="high-school">High School</option>
+                  <option value="bachelors">Bachelor's Degree</option>
+                  <option value="masters">Master's Degree</option>
+                  <option value="phd">PhD</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="experience">Years of Experience</label>
+                <select id="experience" name="experience" required>
+                  <option value="">Select Experience</option>
+                  <option value="0-1">0-1 years</option>
+                  <option value="2-5">2-5 years</option>
+                  <option value="6-10">6-10 years</option>
+                  <option value="10+">10+ years</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills Assessment -->
+          <div class="form-section">
+            <h3>🎯 Skills & Expertise</h3>
+            <p style="color: #718096; margin-bottom: 20px;">Select skills you're proficient in:</p>
+            <div class="skill-tags" id="skillTags">
+              <button type="button" class="skill-tag" data-skill="JavaScript">JavaScript</button>
+              <button type="button" class="skill-tag" data-skill="Python">Python</button>
+              <button type="button" class="skill-tag" data-skill="Java">Java</button>
+              <button type="button" class="skill-tag" data-skill="React">React</button>
+              <button type="button" class="skill-tag" data-skill="Data Analysis">Data Analysis</button>
+              <button type="button" class="skill-tag" data-skill="Machine Learning">Machine Learning</button>
+              <button type="button" class="skill-tag" data-skill="Project Management">Project Management</button>
+              <button type="button" class="skill-tag" data-skill="Digital Marketing">Digital Marketing</button>
+              <button type="button" class="skill-tag" data-skill="Design">Design</button>
+              <button type="button" class="skill-tag" data-skill="Leadership">Leadership</button>
+              <button type="button" class="skill-tag" data-skill="Communication">Communication</button>
+              <button type="button" class="skill-tag" data-skill="Problem Solving">Problem Solving</button>
+            </div>
+          </div>
+
+          <!-- Preferences -->
+          <div class="form-section">
+            <h3>💼 Work Preferences</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="workStyle">Preferred Work Style</label>
+                <select id="workStyle" name="workStyle" required>
+                  <option value="">Select Work Style</option>
+                  <option value="remote">Remote</option>
+                  <option value="hybrid">Hybrid</option>
+                  <option value="office">In-Office</option>
+                  <option value="flexible">Flexible</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="industry">Preferred Industry</label>
+                <select id="industry" name="industry" required>
+                  <option value="">Select Industry</option>
+                  <option value="technology">Technology</option>
+                  <option value="healthcare">Healthcare</option>
+                  <option value="finance">Finance</option>
+                  <option value="education">Education</option>
+                  <option value="marketing">Marketing</option>
+                  <option value="consulting">Consulting</option>
+                  <option value="creative">Creative</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="salary">Expected Salary Range</label>
+                <select id="salary" name="salary" required>
+                  <option value="">Select Salary Range</option>
+                  <option value="30-50k">₹30,000 - ₹50,000</option>
+                  <option value="50-75k">₹50,000 - ₹75,000</option>
+                  <option value="75-100k">₹75,000 - ₹100,000</option>
+                  <option value="100k+">₹100,000+</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="goals">Career Goals</label>
+                <textarea id="goals" name="goals" rows="3"
+                  placeholder="Describe your career goals and aspirations..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">Get My Career Recommendations</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section class="results" id="results">
+    <div class="container">
+      <div class="results-container">
+        <h2 class="section-title" style="color: #2d3748;">Your Career Matches</h2>
+        <p style="text-align: center; color: #718096; margin-bottom: 20px;">Based on your assessment, here are your top
+          career recommendations:</p>
+
+        <div class="career-cards" id="careerCards">
+          <!-- Career cards will be dynamically generated -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Skill selection functionality
+    document.getElementById('skillTags').addEventListener('click', function (e) {
+      if (e.target.classList.contains('skill-tag')) {
+        e.target.classList.toggle('selected');
+        updateProgress();
+      }
+    });
+
+    // Form submission
+    document.getElementById('assessmentForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      generateResults();
+    });
+
+    // Progress tracking
+    function updateProgress() {
+      const formInputs = document.querySelectorAll('#assessmentForm input, #assessmentForm select, #assessmentForm textarea');
+      const selectedSkills = document.querySelectorAll('.skill-tag.selected');
+
+      let filledFields = 0;
+      const totalFields = formInputs.length + 3; // +3 for skill selection as one field
+
+      formInputs.forEach(input => {
+        if (input.value.trim() !== '') filledFields++;
+      });
+
+      if (selectedSkills.length > 0) filledFields++;
+
+      const progress = (filledFields / totalFields) * 100;
+      document.getElementById('progressFill').style.width = progress + '%';
+    }
+
+    // Generate career recommendations
+    function generateResults() {
+      const formData = new FormData(document.getElementById('assessmentForm'));
+      const selectedSkills = Array.from(document.querySelectorAll('.skill-tag.selected')).map(tag => tag.dataset.skill);
+
+      // Simulate AI analysis
+      const careers = generateCareerRecommendations(formData, selectedSkills);
+      displayResults(careers);
+
+      // Show results section
+      document.getElementById('results').classList.add('show');
+      document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Generate career recommendations based on input
+    function generateCareerRecommendations(formData, skills) {
+      const recommendations = [
+        {
+          title: "Software Engineer",
+          match: "95%",
+          description: "Design and develop software applications using modern programming languages and frameworks.",
+          salary: "₹85,000 - ₹150,000",
+          growth: "+22% growth"
+        },
+        {
+          title: "Data Scientist",
+          match: "88%",
+          description: "Analyze complex data sets to extract insights and build predictive models for business decisions.",
+          salary: "₹95,000 - ₹165,000",
+          growth: "+35% growth"
+        },
+        {
+          title: "Product Manager",
+          match: "82%",
+          description: "Lead product development from conception to launch, coordinating between technical and business teams.",
+          salary: "₹90,000 - ₹180,000",
+          growth: "+19% growth"
+        },
+        {
+          title: "UX Designer",
+          match: "78%",
+          description: "Create intuitive and engaging user experiences for digital products and applications.",
+          salary: "₹70,000 - ₹130,000",
+          growth: "+13% growth"
+        }
+      ];
+
+      // Sort by match percentage (in a real app, this would be ML-generated)
+      return recommendations.sort((a, b) => parseInt(b.match) - parseInt(a.match));
+    }
+
+    // Display results
+    function displayResults(careers) {
+      const careerCards = document.getElementById('careerCards');
+      careerCards.innerHTML = '';
+
+      careers.forEach((career, index) => {
+        const card = document.createElement('div');
+        card.className = 'career-card';
+        card.style.animationDelay = `₹{index * 100}ms`;
+        card.innerHTML = `
+                    <h3>₹{career.title}</h3>
+                    <p>Match: ₹{career.match}</p>
+                    <p>₹{career.description}</p>
+                    <p>Salary: ₹{career.salary}</p>
+                    <p>Growth: ₹{career.growth}</p>
+                `;
+        careerCards.appendChild(card);
+      });
+    }
+  </script>
+</body>
+
+</html>
